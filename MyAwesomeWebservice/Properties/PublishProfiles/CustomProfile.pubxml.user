@@ -13,10 +13,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>09/05/2018 16:10:50</publishTime>
     </File>
     <File Include="bin/MyAwesomeWebservice.dll">
-      <publishTime>05/12/2020 23:32:10</publishTime>
+      <publishTime>05/13/2020 11:22:15</publishTime>
     </File>
     <File Include="bin/MyAwesomeWebservice.pdb">
-      <publishTime>05/12/2020 23:32:10</publishTime>
+      <publishTime>05/13/2020 11:22:15</publishTime>
     </File>
     <File Include="bin/roslyn/csc.exe">
       <publishTime>08/08/2018 05:38:48</publishTime>
@@ -169,13 +169,13 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>05/12/2020 22:39:56</publishTime>
     </File>
     <File Include="PrecompiledApp.config">
-      <publishTime>05/12/2020 23:32:11</publishTime>
+      <publishTime>05/13/2020 11:22:16</publishTime>
     </File>
     <File Include="readme.md">
       <publishTime>05/12/2020 23:10:08</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>05/12/2020 23:32:10</publishTime>
+      <publishTime>05/13/2020 11:21:36</publishTime>
     </File>
   </ItemGroup>
 </Project>

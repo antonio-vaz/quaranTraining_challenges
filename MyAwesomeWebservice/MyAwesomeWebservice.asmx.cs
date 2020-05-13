@@ -25,9 +25,9 @@ namespace MyAwesomeWebservice
         }
 
         [WebMethod]
-        public int  AddNumbers(int number1, int number2)
+        public int  AddNumbers(int n1, int n2)
         {
-            return number1 + number2;
+            return n1 + n2;
         }
     }
 }
