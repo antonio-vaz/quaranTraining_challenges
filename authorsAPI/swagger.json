@@ -53,8 +53,7 @@
                 "temporary"
               ],
               "default": "active"
-            },
-            "collectionFormat": "multi"
+            }
           }
         ],
         "responses": {
