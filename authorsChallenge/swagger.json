@@ -1,0 +1,324 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "This is a sample demo Open API Sepc",
+    "version": "1.0.0",
+    "title": "QuaranTraining Session #3",
+    "contact": {
+      "email": "avaz3@slb.com"
+    },
+    "license": {
+      "name": "Apache 2.0",
+      "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+    }
+  },
+  "host": "myawesomeserver.eastus.cloudapp.azure.com:8081",
+  "basePath": "/v1",
+  "tags": [
+    {
+      "name": "Authors",
+      "description": "Everything about Authors",
+      "externalDocs": {
+        "description": "Find out more",
+        "url": "http://swagger.io"
+      }
+    }
+  ],
+  "schemes": [
+    "https"
+  ],
+  "paths": {
+    "/author": {
+      "get": {
+        "tags": [
+          "Authors"
+        ],
+        "summary": "Finds Author by status",
+        "description": "",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "status",
+            "in": "query",
+            "description": "Status values that need to be considered for filter",
+            "required": false,
+            "type": "string",
+            "items": {
+              "type": "string",
+              "enum": [
+                "active",
+                "retired",
+                "temporary"
+              ],
+              "default": "active"
+            },
+            "collectionFormat": "multi"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Author"
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid status value",
+            "schema": {
+              "$ref": "#/definitions/ApiResponse"
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "schema": {
+              "$ref": "#/definitions/ApiResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "api_key": []
+          }
+        ]
+      },
+      "post": {
+        "tags": [
+          "Authors"
+        ],
+        "summary": "Add a new Author",
+        "description": "",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Author object that needs to be created",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Author"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Created"
+          },
+          "400": {
+            "description": "Invalid input",
+            "schema": {
+              "$ref": "#/definitions/ApiResponse"
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "schema": {
+              "$ref": "#/definitions/ApiResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "api_key": []
+          }
+        ]
+      }
+    },
+    "/author/{authorId}": {
+      "put": {
+        "tags": [
+          "Authors"
+        ],
+        "summary": "Update an existing Author",
+        "description": "",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "authorId",
+            "in": "path",
+            "description": "The author id to update.",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Author object that needs to be updated",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Author"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Author updated"
+          },
+          "400": {
+            "description": "Validation exception",
+            "schema": {
+              "$ref": "#/definitions/ApiResponse"
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "schema": {
+              "$ref": "#/definitions/ApiResponse"
+            }
+          },
+          "404": {
+            "description": "Author not found",
+            "schema": {
+              "$ref": "#/definitions/ApiResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "api_key": []
+          }
+        ]
+      }
+    },
+    "/challenge/{challengeKey}": {
+      "put": {
+        "tags": [
+          "Challenge"
+        ],
+        "summary": "Update an existing Author",
+        "description": "",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "authorId",
+            "in": "path",
+            "description": "The author id to update.",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Author object that needs to be updated",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Author"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Author updated"
+          },
+          "400": {
+            "description": "Validation exception",
+            "schema": {
+              "$ref": "#/definitions/ApiResponse"
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "schema": {
+              "$ref": "#/definitions/ApiResponse"
+            }
+          },
+          "404": {
+            "description": "Author not found",
+            "schema": {
+              "$ref": "#/definitions/ApiResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "api_key": []
+          }
+        ]
+      }
+    }
+  },
+  
+  "securityDefinitions": {
+    "api_key": {
+      "type": "apiKey",
+      "name": "x-apikey",
+      "in": "header"
+    }
+  },
+  "definitions": {
+    "Author": {
+      "type": "object",
+      "required": [
+        "name",
+        "status"
+      ],
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int64",
+          "readOnly": true
+        },
+        "name": {
+          "type": "string",
+          "example": "John Doe"
+        },
+        "status": {
+          "type": "string",
+          "description": "Author status",
+          "example": "active",
+          "enum": [
+            "active",
+            "retired",
+            "temporary"
+          ]
+        }
+      }
+    },
+    "ApiResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "type": {
+          "type": "string"
+        },
+        "message": {
+          "type": "string"
+        }
+      }
+    },
+    "Flag": {
+      "type": "object",
+      "properties": {
+        "flag": {
+          "type": "string"
+        }
+      }
+    }
+  },
+  "externalDocs": {
+    "description": "Link to further documentation ... TODO",
+    "url": "http://google.com"
+  }
+}
